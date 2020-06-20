@@ -1,0 +1,12 @@
+button.back-to-top {
+    position: fixed;
+	bottom: 20px;
+}
+
+a:hover {
+    color: teal !important;
+}
+
+.ui.fixed.sticky {
+    margin-top: 25px !important;
+  }

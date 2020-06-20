@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MySm</title>
+    
+    <partial name="_MainStyles"/>
+
+</head>
+<body>
+    <header>
+        <div class="ui centered grid">
+            <div class="fourteen wide column">
+                <div class="sixteen wide column">
+                    <div class="ui secondary pointing huge menu">
+                        <a href="index.html" class="header item">
+                            Fifth ave @@
+                        </a>
+                        <div class="right menu">
+                            <a class="ui item">
+                                Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    @RenderBody()
+
+
+    <div>
+
+    </div>
+
+    <partial name="_MainScripts"/>
+</body>
+</html>

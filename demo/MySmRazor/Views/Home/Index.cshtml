@@ -1,0 +1,132 @@
+﻿@using MySm.Models.Feed
+@model MySm.Models.Feed.FeedViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="ui centered grid">
+
+    <!-- content, centre, feed -->
+    <div class="seven wide column without-padding-top main-page-feed">
+        <div id="feed" class="">
+
+            <div class="ui left very close rail left-main-menu">
+                <div class="ui special cards">
+                    <div class="ui card">
+                        <div class="blurring dimmable image">
+                            <div class="ui dimmer">
+                                <div class="content">
+                                    <div class="center">
+                                        <div class="ui inverted button" href="/settings">
+                                            <i class="cog icon"></i>
+                                            Settings
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <img class="ui image" src="ZG5d2UAlwU8.jpg">
+                        </div>
+                        <div class="content">
+                            <div class="header">
+                                Dmitry Kaznacheev
+                            </div>
+                            <div class="meta">
+                                <a>@@dmitry_bym</a>
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            <span class="right floated">
+                                105 Posts
+                                <i class="sticky note icon"></i>
+                            </span>
+                            <span>
+                                <i class="user icon"></i>
+                                75 Friends
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui sticky fluid vertical menu">
+                    <a class="active teal item">
+                        Feed
+                        <div class="ui teal left pointing label">1</div>
+                    </a>
+                    <a class="item">
+                        My Profile
+                        <div class="ui label">51</div>
+                    </a>
+                    <a class="item" href="/settings">
+                        Settings
+                        <div class="ui label">1</div>
+                    </a>
+                    <a class="item">
+                        Messages
+                        <div class="ui label">1</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="ui right very close rail">
+                <div class="ui segment">
+                    atata
+                </div>
+                <button class="ui teal icon large button back-to-top transition hidden">
+                    <i class="angle up icon"></i>
+                </button>
+            </div>
+
+            <div id="posts" class="main-content-feed">
+                @foreach (var post in Model.posts)
+                {
+                    <div class="ui fluid card">
+                        <div class="content">
+                            <div class="right floated meta">@post.PostedAgo</div>
+                            <img class="ui avatar image" src="@post.UserAvatarUri">@post.UserNickname
+                        </div>
+                        <div class="image">
+                            <img src="@post.MainPostImageUri">
+                        </div>
+                        <div class="content">
+                            <a href="@post.PostUri" class="header">@post.PostHeader</a>
+                            <div class="meta">
+                                <span class="date">@post.PostedDate</span>
+                            </div>
+                            <div class="description">
+                                @post.PostedTextPart
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            <div class="right floated">
+                                @switch (@post.StarsFromYou)
+                                {
+                                    case StarsNumber.Zero:
+                                        {
+                                            <div class="ui star rating" data-rating="0" data-max-rating="1"></div>
+                                            break;
+                                        }
+                                    case StarsNumber.One:
+                                        {
+                                            <div class="ui star rating" data-rating="1" data-max-rating="1"></div>
+                                            break;
+                                        }
+                                    case StarsNumber.Two:
+                                        {
+                                            <div class="ui star rating" data-rating="2" data-max-rating="2"></div>
+                                            break;
+                                        }
+                                }
+                                @post.StarsNumber stars
+                            </div>
+                            <i class="comment icon"></i>
+                            @post.CommentsNumber comments
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </div>
+        
+    </div>
+
+</div>
